@@ -5,7 +5,7 @@ using UnityEngine;
 public class HeroWeapon : MonoBehaviour
 {
     public HeroBullet bulletPrefab;
-    public float frequency = 1f;
+    public float frequency = 0.2f;
     public float angle = 0f;
 
     private float timer = 0;
@@ -14,13 +14,17 @@ public class HeroWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward, Color.red, 10f);
-        timer += Time.deltaTime;
-        if (timer > frequency)
+       if(Input.GetMouseButton(0))
         {
-            var bulletDirection = Quaternion.LookRotation(transform.forward) * Quaternion.AngleAxis(angle, Vector3.up);
-            var bullet = Instantiate(bulletPrefab, transform.position, bulletDirection);
-            timer = 0;
+            Debug.DrawRay(transform.position, transform.forward, Color.red, 10f);
+            timer += Time.deltaTime;
+            if (timer > frequency)
+            {
+                var bulletDirection = Quaternion.LookRotation(transform.forward) * Quaternion.AngleAxis(angle, Vector3.up);
+                var bullet = Instantiate(bulletPrefab, transform.position, bulletDirection);
+                timer = 0;
+            }
         }
+
     }
 }

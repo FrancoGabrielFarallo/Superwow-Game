@@ -17,13 +17,16 @@ public class HeroWeapon : MonoBehaviour
        if(Input.GetMouseButton(0))
         {
             Debug.DrawRay(transform.position, transform.forward, Color.red, 10f);
-            timer += Time.deltaTime;
-            if (timer > frequency)
-            {
-                var bulletDirection = Quaternion.LookRotation(transform.forward) * Quaternion.AngleAxis(angle, Vector3.up);
-                var bullet = Instantiate(bulletPrefab, transform.position, bulletDirection);
-                timer = 0;
-            }
+
+            var bulletDirection = Quaternion.LookRotation(transform.forward) * Quaternion.AngleAxis(angle, Vector3.up);
+            var bullet = Instantiate(bulletPrefab, transform.position, bulletDirection);
+  
+
+           // timer += Time.deltaTime;
+           // if (timer > frequency)
+           // {
+           //     timer = 0;
+           // }
         }
 
     }

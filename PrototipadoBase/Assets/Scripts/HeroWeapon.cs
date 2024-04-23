@@ -8,7 +8,7 @@ public class HeroWeapon : MonoBehaviour
     public float frequency = 0.2f;
     public float angle = 0f;
 
-    private float timer = 0;
+   
 
 
     // Update is called once per frame

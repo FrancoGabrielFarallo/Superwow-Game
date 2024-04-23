@@ -5,7 +5,7 @@ using UnityEngine;
 public class HeroBehaviour : MonoBehaviour
 {
     public float velocity = 10f;
-    public int healthPoints = 100;
+    public int healthPoints = 10;
 
     void Update()
     {
@@ -31,6 +31,14 @@ public class HeroBehaviour : MonoBehaviour
         {
             transform.Translate(speed.normalized * (velocity * Time.deltaTime), Space.World);
             transform.rotation = Quaternion.LookRotation(speed);
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                healthPoints -= 10;
+            }
         }
 
         if (healthPoints <= 0)

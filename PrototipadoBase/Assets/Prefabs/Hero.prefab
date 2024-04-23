@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 10
-  healthPoints: 100000
+  healthPoints: 100
 --- !u!136 &2808352723358654003
 CapsuleCollider:
   m_ObjectHideFlags: 0
